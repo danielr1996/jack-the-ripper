@@ -4,6 +4,7 @@ udevadm info -q env -n /dev/sr0
 https://forum.makemkv.com/forum/viewtopic.php?f=3&t=224
 makemkvcon -r --cache=1 info disc:0 > makemkv.log
 cat makemkv.log | grep DRV:02
+makemkvcon --directio=true --noscan --cache 4096 -r backup disc:0 .
 ```
 
 

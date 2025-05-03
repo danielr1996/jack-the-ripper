@@ -1,0 +1,14 @@
+services:
+  rip:
+    image: ghcr.io/danielr1996/jack-the-ripper/makemkv
+    entrypoint: ["/bin/bash","-c"]
+    command: ["makemkvcon --directio=true --noscan --cache 4096 -r info dev:$$DRIVE | parseinfo"]
+    working_dir: /rips
+    volumes:
+      - rips:/rips
+volumes:
+  rips:
+    driver_opts:
+      type: "cifs"
+      o: "username=jacktheripper,password=jacktheripper"
+      device: "//nas02.mgmt.rtb.dani.rip/rips"

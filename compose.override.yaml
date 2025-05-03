@@ -1,0 +1,7 @@
+services:
+  rip:
+    privileged: true
+    volumes:
+      - /dev:/dev
+    environment:
+      DRIVE: /dev/sr1
